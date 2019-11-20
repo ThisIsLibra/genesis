@@ -1,6 +1,8 @@
 # Genesis
 Periodically testing the effectiveness of the defensive security measures that are in place, is required. Over time, rules or products that used to work, might not function as expected. Creating effective tests is a tedious and time consuming process which also requires in-depth technical knowledge. Even then, most tests are written once and used in all future tests. This might result in the detection of the test, rather than the used technique(s). To combat this, Genesis has been developed. It serves as a framework to create, store, and generate test cases. Additionally, Genesis can serve as an extension of existing platforms such as Cobalt Strike or the Metasploit Framework.
 
+![Genesis homepage](https://github.com/thisislibra/genesis/raw/master/git-images/home.png "The Genesis home page")
+
 Genesis is a framework that is used to repeatedly generate customised yet unique test cases, based on a given snippet. A snippet is a template that contains meta data and code. The meta data is used when searching through all snippets, whereas the code is used to create “benign malware”. All the snippets are mapped to the MITRE ATT&CK framework. The generated test cases can then be executed on the targeted machine, after which the rules of the in-place security measures should provide alerts regarding the test case.
 
 In short, Genesis is focused on a few key points. First off, simplicity is key. Be it the user experience of the end user, or someone who looks into the source code: everything should be self-explanatory.
@@ -17,6 +19,9 @@ Lastly, privacy! Genesis does not keep track of anything. There is no usage hist
 
 ## Audience and use cases
 There are multiple different use cases for Genesis. A SIEM use case design team can utilise it to test a rule that is being constructed. A blue team can utilise it to see if the rules that are in place function correctly. A red team can utilise it to create a payload, as every generation  is unique (although the eventual output is not changed).
+
+## Operating system support
+Since Genesis is written in plain Java, the framework itself can run on any Java version. To expose the API, Java 8 EE is used, meaning that one has to use Java 8 EE for the back-end, which runs on any major operating system. The front-end is written in VueJS, which requires NPM to be installed. NPM, and Javascript in general, can run on any major operating system.
 
 ## API
 As stated before, the API exposes more information that is currently available in the front-end. The API documentation (in the form of Javadoc) can be found [here](https://github.com/thisislibra/genesis/releases). Note that the complete program is documented in here, and only the controller classes contain API endpoints. Please see the `apidocs/controller/package-summary.html` file within the latest release for a summary of all exposed API classes. In each class, a detailed explantion is given for every function that is present.
@@ -62,7 +67,7 @@ jsFunction();
 ```
 
 # Installation
-To install Genesis, one needs to install Java 8 together with the Java Enterprise Edition 8. Although this Java edition is old and future releases do not contain the Java EE modules anymore, Genesis is build upon it. The framework is not meant to be run in a place where it is directly exposed to the internet. Aside from that, the only part that relies on the Java EE framework, are the controllers. Every other part of Genesis works on any Java version (OpenJDK or Oracle's JDK), as this was kept in mind during the design.
+To install Genesis, one needs to install Java 8 together with the Java Enterprise Edition 8. The framework is not meant to be run in a place where it is directly exposed to the internet. Aside from that, the only part that relies on the Java EE framework, are the exposed API endpoints which are located in the `controllers` package. Every other part of Genesis works on any Java version (OpenJDK or Oracle's JDK), as this was kept in mind during the design.
 
 ## Back-end installation
 The WAR file that is given in the release section needs to be loaded by a [Glassfish](https://javaee.github.io/glassfish/ "Glassfish") or [Payara](https://www.payara.fish/ "Payara") server. Regardless of the operating system, an accessible folder at `/json/` should be created. On Linux or Unix, this can be done using `mkdir /json`. If need be, some permissions might need to be changed using `chmod`. On Windows, one needs to create the `C:\json`, unless another drive is used as the primary drive.
