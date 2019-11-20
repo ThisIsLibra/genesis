@@ -1,4 +1,27 @@
 # Genesis
+
+## Elevator pitch
+Genesis is a framework that allows users to create their own test cases, which are obfuscated during the generation process. Optionally, one can provide user input prior to the obfuscation  to further customise the test case. These test cases are made unique via the obfuscation to ensure that a technique is tested, rather than a sample. 
+
+Test cases are mapped to the MITRE ATT&CK matrix for additional insights into Techniques and Tactics. Genesis supports `Javascript`, `Powershell` and `Visual Basic for Applications (VBA)`, is suitable to use on any platform that can run Java 8 EE and NPM, and contains multiple obfuscation profiles to differentiate how much a test case should be obfuscated. Below, a test case is given, together with an obfuscated output using the `medium` profile.
+
+The original code:
+```javascript
+console.log("<<MessageA>>");
+console.log("<<MessageB>>");
+```
+
+The obfuscated output using the `medium` obfuscation profile:
+```javascript
+function jsFunction() {
+console.log(atob(atob(atob(atob(("V" + "m" + "x" + "S" + "S" + "k" + "5" + "G" + "b" + "3" + "l" + "W" + "b" + "G" + "h" + "Q" + "V" + "k" + "V" + "a" + "S" + "1" + "V" + "q" + "Q" + "m" + "F" + "j" + "V" + "n" + "B" + "G" + "Y" + "U" + "Z" + "k" + "a" + "F" + "I" + "w" + "c" + "E" + "l" + "a" + "V" + "V" + "J" + "X" + "U" + "2" + "x" + "J" + "e" + "F" + "d" + "U" + "Q" + "l" + "h" + "i" + "R" + "1" + "J" + "Q" + "V" + "F" + "Z" + "k" + "U" + "1" + "N" + "G" + "W" + "n" + "R" + "k" + "R" + "X" + "B" + "U" + "U" + "m" + "t" + "w" + "M" + "l" + "Y" + "y" + "e" + "E" + "9" + "R" + "M" + "l" + "Z" + "z" + "Y" + "T" + "N" + "w" + "V" + "G" + "J" + "r" + "S" + "n" + "F" + "V" + "M" + "F" + "p" + "H" + "Y" + "n" + "c" + "9" + "P" + "Q" + "=" + "=" ))))));
+console.log(atob(atob(atob(atob(("V" + "m" + "t" + "S" + "T" + "1" + "N" + "s" + "b" + "3" + "h" + "j" + "R" + "W" + "h" + "p" + "U" + "j" + "N" + "S" + "S" + "1" + "U" + "w" + "Z" + "D" + "R" + "N" + "b" + "H" + "B" + "H" + "V" + "G" + "t" + "O" + "b" + "F" + "Z" + "u" + "Q" + "l" + "p" + "W" + "M" + "j" + "E" + "0" + "Y" + "W" + "1" + "K" + "c" + "k" + "5" + "Y" + "T" + "l" + "R" + "W" + "V" + "1" + "J" + "6" + "V" + "F" + "V" + "a" + "Q" + "0" + "0" + "x" + "Q" + "l" + "V" + "N" + "R" + "D" + "A" + "9" ))))));
+}
+
+jsFunction();
+```
+
+## Detailed information
 Periodically testing the effectiveness of the defensive security measures that are in place, is required. Over time, rules or products that used to work, might not function as expected. Creating effective tests is a tedious and time consuming process which also requires in-depth technical knowledge. Even then, most tests are written once and used in all future tests. This might result in the detection of the test, rather than the used technique(s). To combat this, Genesis has been developed. It serves as a framework to create, store, and generate test cases. Additionally, Genesis can serve as an extension of existing platforms such as Cobalt Strike or the Metasploit Framework.
 
 ![Genesis homepage](https://github.com/thisislibra/genesis/raw/master/git-images/home.png "The Genesis home page")
